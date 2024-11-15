@@ -1,0 +1,9 @@
+subtitle: "BJ-CNV 1.2.2"
+custom_logo_title: 'BioSkryb'
+custom_logo: bioskryb_logo-tagline.jpg
+intro_text: "The report shows CNV results for the samples in the run."
+
+# Default output filenames
+output_fn_name: multiqc_report.html
+data_dir_name: multiqc_data
+

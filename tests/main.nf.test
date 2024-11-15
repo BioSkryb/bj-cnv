@@ -1,0 +1,39 @@
+nextflow_pipeline {
+
+    name "Test Workflow main.nf"
+    script "main.nf"
+
+    test("BJ-CNV Test") {
+
+        when {
+            params {
+                // define parameters here. Example: 
+                publish_dir = "${outputDir}/results"
+                timestamp = "test"
+                input_csv = "$baseDir/tests/data/inputs/input.csv"
+            }
+        }
+
+        then {
+            assertAll(
+                // Check if the workflow was successful
+                { assert workflow.success },
+
+                // Verify existence of the AllSample-GinkgoSegmentSummary text file
+                {assert new File("${outputDir}/results_test/tertiary_analyses/cnv_ginkgo/AllSample-GinkgoSegmentSummary.txt").exists()},
+
+                // Verify existence of the SegCopy.binsize_1000000 text file
+                {assert new File("${outputDir}/results_test/tertiary_analyses/cnv_ginkgo/SegCopy.binsize_1000000.tsv").exists()},
+
+                // Verify existence of the cnv bin size jpeg file
+                {assert new File("${outputDir}/results_test/tertiary_analyses/cnv_ginkgo/cnv_binsize_1000000_ResolveOME-test-bam1_CN.jpeg").exists()},
+
+                // Check for a match in the cnv1 text file
+                {assert snapshot (path("${outputDir}/results_test/tertiary_analyses/cnv_ginkgo/ResolveOME-test-bam1_CNV1.tsv")).match("cnv1")}
+
+            )
+        }
+
+    }
+
+}

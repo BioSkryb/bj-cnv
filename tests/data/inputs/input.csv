@@ -1,0 +1,4 @@
+biosampleName,bam
+ResolveOME-test-bam1,s3://bioskryb-public-data/pipeline_resources/dev-resources/local_test_files/bam/ResolveOME-test-bam1.bam
+ResolveOME-test-bam2,s3://bioskryb-public-data/pipeline_resources/dev-resources/local_test_files/bam/ResolveOME-test-bam2.bam
+ResolveOME-test-bam3,s3://bioskryb-public-data/pipeline_resources/dev-resources/local_test_files/bam/ResolveOME-test-bam3.bam
