@@ -10,7 +10,7 @@ if ( params.help ) {
 }
 
 params.reference = params.genomes [ params.genome ] [ 'reference' ]
-params.ginko_ref_dir = params.genomes [ params.genome ] [ "${params.bin_size}" ] [ 'ginko_ref_dir' ]
+params.ginko_ref_dir = params.genomes [ params.genome ] [ "${params.bin_size}" ] [ "${params.ginko_readlen}" ] [ 'ginko_ref_dir' ]
 
 workflow {
     
